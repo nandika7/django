@@ -1,0 +1,59 @@
+{% extends 'myapp/base.html' %}
+    {% load static %}
+    {% block content %} 
+    <link rel="stylesheet" href="{% static 'css/registration_form.css' %}">
+    <script>
+        function toggleUser(){
+            var userType = document.querySelector('input[name="user_type"]:checked').value
+            var specializationField = document.getElementById('specialization-field') 
+            if(userType=="doctor"){
+                specializationField.style.display = 'block'
+            }
+            else{
+                specializationField.style.display = 'none'
+            }
+        }
+    </script>
+    <form method="post" action="{% url 'register' %}" class="registration-form">
+        {% csrf_token %}
+        <div class="form-bg">
+            <label for="user_type">Register as:</label>
+            <input type="radio" id="user_type_user" name="user_type" value="user" onchange="toggleUser()">User
+            <input type="radio" id="user_type_doctor" name="user_type" value="doctor" onchange="toggleUser()">Doctor
+        </div>
+        <div class="form-bg" style="display:none" id="specialization-field">
+            <label for="specialization">Specialization:</label>
+            <select name="specilization">
+                <option value="speciality_1">Speciality 1</option>
+                <option value="speciality_2">Speciality 2</option>
+                <option value="speciality_3">Speciality 3</option>
+            </select>
+        </div>
+        <div class="form-bg">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" class="form-input">
+        </div>
+
+        <div class="form-bg">
+            <label for="gender">Gender:</label>
+            <input type="text" id="gender" name="gender" class="form-input">
+        </div>
+
+        <div class="form-bg">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" class="form-input">
+        </div>
+
+        <div class="form-bg">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-input">
+        </div>
+
+        <div class="form-bg">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="form-input">
+        </div>
+
+        <input type="submit" value="Register" class="form-submit">
+    </form>
+    {% endblock %}

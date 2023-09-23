@@ -1,0 +1,66 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+    {% block content %} 
+    <link rel="stylesheet" href="{% static 'css/registration_form.css' %}">
+    <form method = 'post' action = "{% url 'predict_diabetes' %}" >
+        {% csrf_token %}
+
+        <div class="form-group">
+        <label for="age">
+            age
+        </label>
+        <input type="text" id="age" name="age"  class="form-input"><br><br>
+        </div>
+
+        <div class="form-group">
+        <label for="pregnancies">
+            pregnancies
+        </label>
+        <input type="text" id="pregnancies" name="pregnancies"  class="form-input"><br><br>
+        </div>
+        
+        <div class="form-group">
+        <label for="glucose">
+            glucose
+        </label>
+        <input type="text" id="glucose" name="glucose"  class="form-input"><br><br>
+        </div>
+        
+        <div class="form-group">
+        <label for="bloodPressure">
+            bloodPressure
+        </label>
+        <input type="text" id="bloodPressure" name="bloodPressure"  class="form-input"><br><br>
+        </div>
+
+        <div class="form-group">
+        <label for="skinThickness">
+            skinThickness
+        </label>
+        <input type="text" id="skinThickness" name="skinThickness"  class="form-input"><br><br>
+        </div>
+
+        <div class="form-group">
+        <label for="insulin">
+            insulin
+        </label>
+        <input type="text" id="insulin" name="insulin"  class="form-input"><br><br>
+        </div>
+
+        <div class="form-group">
+        <label for="bmi">
+            bmi
+        </label>
+        <input type="text" id="bmi" name="bmi"  class="form-input"><br><br>
+        </div>
+
+        <div class="form-group">
+        <label for="diabetesPedigreeFunction">
+            diabetesPedigreeFunction
+        </label>
+        <input type="text" id="diabetesPedigreeFunction" name="diabetesPedigreeFunction"  class="form-input"><br><br>
+        
+        
+        <input type = "submit" value = "Submit" >
+    </form>
+{% endblock %}
