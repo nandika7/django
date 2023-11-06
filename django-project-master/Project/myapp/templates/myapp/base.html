@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo">
+                <!-- Your logo content here -->
+            </div>
+            <div class="menu" style="display:flex; ">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about_us">About us</a></li>
+                    <li><a href="/predict_diabetes">Predict Diabetes</a></li>
+                    <li><a href="/update_health_details">Update health Details</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="user-section">
+            {% if request.session.user_id %}
+            <ul>
+                <li><a href="#">{{ name }}</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+            {% else %}
+            <ul>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            </ul>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer style="position: static; width: 100%; bottom:0%">
+        <p>www.xyz.com All rights reserved</p>
+        <p><a href="tnc">Terms and Conditions</a></p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+{% extends 'myapp/base.html' %}
+    {% load static %}
+    {% block content %} 
+    <link rel="stylesheet" href="{% static 'css/login_form.css' %}">
+
+    <form method = 'post' action = "{% url 'login' %}" class="login-form">
+        {% csrf_token %}
+        <div class="form-field">
+            <label for="email">
+                Email:
+            </label>
+            <input type="email" id="email" name="email"  class="form-input"><br><br>
+         </div>
+
+        <div class="form-field">
+            <label for="password">
+                Password:
+            </label>
+            <input type="text" id="password" name="password" class="form-input"><br><br>
+            <input type = "submit" value = "Login" class="form-submit">
+        </div>
+    </form>
+    {% if error_message %}
+            <div class="alert" style="font-weight: bold; color: red; font-size: 20px;"> {{error_message}} </div>
+        {% endif %}
+{% endblock %}

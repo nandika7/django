@@ -1,0 +1,12 @@
+{% extends 'myapp/base.html' %}
+    {% load static %}
+
+    {% block content %}
+    <link rel="stylesheet" href="{% static 'css/about_us.css' %}">
+        <div class="about-us">
+            <div class="randomdiv">
+                <h2>About Us</h2>
+                <p>Welcome to OptiPro, a platform dedicated to helping users track their health risks, with a focus on predicting diabetes. While our current feature is diabetes prediction, we plan to expand our services to cover more health conditions in the future.</p>
+            </div>
+        </div>
+    {% endblock %}

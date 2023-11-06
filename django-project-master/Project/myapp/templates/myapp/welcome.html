@@ -1,0 +1,9 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+     {% if outcome == 0 %}
+     Your diabetes results came back positive
+     {% else %}
+     Your diabetes results came back negative
+     {% endif %}
+{% endblock %}

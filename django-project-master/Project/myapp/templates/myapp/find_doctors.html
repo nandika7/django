@@ -1,0 +1,27 @@
+{% extends 'myapp/base.html' %}
+    {% load static %}
+    {% block content %} 
+    <h1>Find Doctors</h1>
+    <form method="post" action="{% url 'find_doctors' %}" class="registration-form">
+        {% csrf_token %}
+        <div class="form-field" style="display:none" id="specialization-field">
+            <label for="specialization">Specialization:</label>
+            <select name="specilization">
+                <option value="speciality_1">Speciality 1</option>
+                <option value="speciality_2">Speciality 2</option>
+                <option value="speciality_3">Speciality 3</option>
+            </select>
+        </div>
+        <div class="form-field">
+            <label for="years_of_experience">Years of Experience</label>
+            <input type="text" id="years_of_experience" name="years_of_experience" class="form-input">
+        </div>
+        <div class="form-field">
+            <label for="rating">Rating</label>
+            <input type="text" id="rating" name="rating" class="form-input">
+        </div>
+
+        </div>
+        <input type="submit" value="Find a doctor" class="form-submit">
+    </form>
+    {% endblock %}
